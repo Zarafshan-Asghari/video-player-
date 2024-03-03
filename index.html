@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/costom.css" />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <title>video player</title>
+  </head>
+  <body class="bg-zinc-800 p-6">
+    <div class="flex items-center justify-center h-screen">
+      <!-- container -->
+      <div class="player max-w-5xl absolute">
+        <video
+          src="video/1.mp4"
+          playsinline
+          class="w-[400px] h-[600px] md:w-[600px] md:h-[600px] object-cover"
+        ></video>
+        <!-- progress bar container -->
+        <div
+          class="relative transition duration-300 ease-in bg-black bg-opacity-60 bottom-20 z-20 left-0 right-0 h-12 md:h-20 text-white p-4"
+        >
+          <!-- progrss bar   -->
+
+          <div
+            id="progress-range"
+            class="relative w-[calc(100%-30px)] h-[6px] bg-gray-300 mb-4 cursor-pointer"
+          >
+            <div
+              id="progress-bar"
+              class="absolute hover:scale-y-110 bg-sky-700 h-[6px]"
+            ></div>
+            <!-- <div
+              class="absolute bg-white border-2 border-sky-700 p-2 left-0 rounded-full"
+            ></div> -->
+          </div>
+          <!-- controls div -->
+          <div class="flex justify-between items-center">
+            <!--left controls:  play, voice, progrssbar -->
+            <div class="flex gap-4 items-center">
+              <span
+                ><ion-icon
+                  id="play"
+                  name="play"
+                  title="play"
+                  class="w-6 h-6 cursor-pointer hover:text-sky-700"
+                ></ion-icon>
+                <ion-icon
+                  id="pause"
+                  name="pause"
+                  title="pause"
+                  class="hidden w-6 h-6 cursor-pointer hover:text-sky-700"
+                ></ion-icon>
+              </span>
+
+              <ion-icon
+                id="volume"
+                title="volume-high"
+                name="volume-high"
+                class="w-6 h-6 cursor-pointer hover:text-sky-700"
+              ></ion-icon>
+              <!-- <ion-icon
+                name="volume-low"
+                class="hidden hover:text-sky-700 cursor-pointer w-6 h-6"
+              ></ion-icon> -->
+              <!-- <ion-icon
+                id="volume-off"
+                name="volume-off"
+                title="volume-off"
+                class="hidden hover:text-sky-700 cursor-pointer w-6 h-6"
+              ></ion-icon> -->
+              <div
+                id="volume-range"
+                class="relative h-1 w-16 md:w-24 bg-gray-300 hover:cursor-pointer"
+              >
+                <div
+                  id="volume-bar"
+                  class="absolute w-[70%] h-1 bg-sky-800"
+                ></div>
+              </div>
+            </div>
+
+            <!--right controls: full screen,speed,time -->
+            <div class="flex items-center gap-4">
+              <!-- speed -->
+              <div class="">
+                <select
+                  id="player-speed"
+                  name="playbackrate"
+                  class="outline-none cursor-pointer text-sky-100 bg-transparent text-sm"
+                >
+                  <option value="0.5" class="cursor-pointer text-sky-700 mb-2">
+                    0.5 X
+                  </option>
+                  <option value="0.75" class="cursor-pointer text-sky-700">
+                    0.75 X
+                  </option>
+                  <option
+                    value="1"
+                    selected
+                    class="cursor-pointer text-sky-700"
+                  >
+                    1 X
+                  </option>
+                  <option value="1.5" class="cursor-pointer text-sky-700">
+                    1.5 X
+                  </option>
+                  <option value="2" class="cursor-pointer text-sky-700">
+                    2 X
+                  </option>
+                </select>
+              </div>
+              <!-- time -->
+              <div class="flex items-center text-sm">
+                <span id="time-elapsed">00:00/</span>
+                <span id="time-duration">2:23</span>
+              </div>
+              <!-- full screen -->
+
+              <ion-icon
+                id="full-screen"
+                name="resize"
+                class="w-6 h-6 cursor-pointer hover:text-sky-700"
+              ></ion-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- script -->
+    <script src="script.js"></script>
+  </body>
+</html>
